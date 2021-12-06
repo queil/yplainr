@@ -8,7 +8,8 @@ export default defineConfig({
     sourcemap: true,
     rolloutOptions: {
       external: [
-        'd3-scale'
+        'd3-scale',
+        'd3-hierarchy'
       ]
     }
   }

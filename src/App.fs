@@ -9,6 +9,7 @@ open Sutil.Attr
 open Sutil.Styling
 open type Feliz.length
 open Fable.Core
+open Fable.Import.D3Hierarchy
 
 module D3Scale =
     type Scale<'T> = interface

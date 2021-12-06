@@ -203,6 +203,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"d3-hierarchy@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "d3-hierarchy@npm:3.1.0"
+  checksum: 11b1693a904ca290d2306e4f7d0e0b8585b0fc3d6c79506ae1e39cd45be75433a702b72c6d3231a6fd5d57478583b0db9b515ec1a326b8be676748555f4c3fc1
+  languageName: node
+  linkType: hard
+
 "d3-interpolate@npm:1.2.0 - 3":
   version: 3.0.1
   resolution: "d3-interpolate@npm:3.0.1"
@@ -1032,6 +1039,7 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    d3-hierarchy: ^3.1.0
     d3-scale: ^4.0.2
     vite: ^2.5.1
   languageName: unknown
