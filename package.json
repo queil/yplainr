@@ -2,12 +2,18 @@
   "private": true,
   "scripts": {
     "postinstall": "dotnet tool restore",
-    "start": "dotnet fable watch src --sourceMaps --run vite serve",
-    "build": "dotnet fable src --sourceMaps --run vite build"
+    "start": "dotnet fable watch src/client --sourceMaps --run vite serve",
+    "build": "dotnet fable src/client --sourceMaps --run vite build",
+    "ts2f-build": "docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t ts2fable tools/ts2fable",
+    "ts2f": "docker run -u $(id -u) -v $(pwd)/src:/app/src --rm -it ts2fable"
   },
   "devDependencies": {
     "vite": "^2.5.1"
   },
   "version": "1.0.0",
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "d3-hierarchy": "^3.1.0",
+    "d3-scale": "^4.0.2"
+  }
 }

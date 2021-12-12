@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  root: "src",
+  root: "src/client",
   build: {
-    outDir: "../public",
+    outDir: "../../public",
     emptyOutDir: true,
-    sourcemap: true
+    sourcemap: true,
+    rolloutOptions: {
+      external: [
+        'd3-scale',
+        'd3-hierarchy'
+      ]
+    }
   }
 });
