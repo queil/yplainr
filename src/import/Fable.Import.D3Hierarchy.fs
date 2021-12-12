@@ -3,9 +3,10 @@ module rec Fable.Import.D3Hierarchy
 open System
 open Fable.Core
 open Fable.Core.JS
-open System.Collections.Generic
 
 type Array<'T> = System.Collections.Generic.IList<'T>
+type Iterable<'T> = System.Collections.Generic.IEnumerable<'T>
+type Iterator<'T> = System.Collections.Generic.IEnumerator<'T>
 
 let [<Import("treemapSquarify","d3-hierarchy")>] treemapSquarify: RatioSquarifyTilingFactory = jsNative
 let [<Import("treemapResquarify","d3-hierarchy")>] treemapResquarify: RatioSquarifyTilingFactory = jsNative
@@ -18,7 +19,7 @@ type [<AllowNullLiteral>] IExports =
     /// <param name="children">The specified children accessor function is invoked for each datum, starting with the root data,
     /// and must return an iterable of data representing the children, if any.
     /// If children is not specified, it defaults to: `(d) => d.children`.</param>
-    abstract hierarchy: data: 'Datum * ?children: ('Datum -> IEnumerable<'Datum> option) -> HierarchyNode<'Datum>
+    abstract hierarchy: data: 'Datum * ?children: ('Datum -> Iterable<'Datum> option) -> HierarchyNode<'Datum>
     /// Constructs a new stratify operator with the default settings.
     abstract stratify: unit -> StratifyOperator<'Datum>
     /// Creates a new cluster layout with default settings.
@@ -108,7 +109,7 @@ type [<AllowNullLiteral>] HierarchyNode<'Datum> =
     /// otherwise, the relative order of a and b are not specified. See `array.sort` for more.</param>
     abstract sort: compare: (HierarchyNode<'Datum> -> HierarchyNode<'Datum> -> float) -> HierarchyNode<'Datum>
     /// Returns an iterator over the node’s descendants in breadth-first order.
-    abstract ``[Symbol.iterator]``: unit -> IEnumerator<HierarchyNode<'Datum>>
+    abstract ``[Symbol.iterator]``: unit -> Iterator<HierarchyNode<'Datum>>
     /// <summary>Invokes the specified function for node and each descendant in breadth-first order,
     /// such that a given node is only visited if all nodes of lesser depth have already been visited,
     /// as well as all preceding nodes of the same depth.</summary>
